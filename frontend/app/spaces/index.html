@@ -2,9 +2,12 @@
 <p>This is the partial for Spaces.</p>
 
  <ul>
-<!-- <a href ="#/spaces/details/{{spaces.indexOf(space)}}"> -->
-  <li ng-repeat="space in spaces">#{{space.id}}: {{space.name}}</li> 
-<!-- </a> -->
+  <li ng-repeat="space in spaces">
+ <a href ="#/spaces/details/{{spaces.indexOf(space)}}">
+  	#{{space.id}}: {{space.name}}
+ </a>
+  </li> 
+
  </ul>
 {{space | json}} 
 
