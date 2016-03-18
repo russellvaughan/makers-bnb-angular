@@ -8,9 +8,9 @@ angular.module('makersbnb.index', ['ngRoute'])
     templateUrl: 'spaces/index.html',
     controller: 'SpacesCtrl'
   }).
-  	when('/spaces/:itemID', {
+  	when('/spaces/:spaceId', {
   		templateUrl: 'spaces/details.html',
-  		controler: 'DetailsCtrl'
+  		controller: 'DetailsCtrl'
   	});
 }])
 
@@ -37,9 +37,13 @@ angular.module('makersbnb.index', ['ngRoute'])
 
 
 .controller('DetailsCtrl', ['$scope','$http', '$routeParams', function($scope, $http, $routeParams) {
+	
+	$scope.whichItem = $routeParams.spaceId;
+	console.log($scope.whichItem)
 	$scope.getSpaces = function(){
 		$http.get('http://localhost:3000/spaces.json').then(function(response){
-			$scope.spaces = response.data;
-			$scope.whichItem = $routeParams.itemID;
-		})};
-}])
+			$scope.spaces = response.data
+	})};
+		
+		$scope.spaces = $scope.getSpaces()
+}]);
