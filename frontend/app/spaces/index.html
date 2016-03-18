@@ -1,5 +1,16 @@
 
 <p>This is the partial for Spaces.</p>
 
- <ul> <li ng-repeat="space in spaces">#{{space.id}}: {{space.name}}</li> 
+ <ul>
+<!-- <a href ="#/spaces/details/{{spaces.indexOf(space)}}"> -->
+  <li ng-repeat="space in spaces">#{{space.id}}: {{space.name}}</li> 
+<!-- </a> -->
  </ul>
+{{space | json}} 
+
+  <form name="list_space">
+    Space: <input type="text" ng-model="space.name"/><br />
+    <input type="submit" ng-click="createSpace()"/>
+  </form>
+</div>
+
