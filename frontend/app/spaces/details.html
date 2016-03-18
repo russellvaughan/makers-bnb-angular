@@ -1,4 +1,11 @@
 
 <h1>{{spaces[whichItem].name}}</h1>
-
 <a href="index.html">back to search</a>
+
+<form name="list_space">
+  Edit Space: <input type="text" ng-model="space.name"/><br />
+  <input type="submit" ng-click="editSpace()"/>
+  </form>
+</div>
+
+{{space | json}} 

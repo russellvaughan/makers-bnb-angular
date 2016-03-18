@@ -36,14 +36,19 @@ angular.module('makersbnb.index', ['ngRoute'])
 }])
 
 
-.controller('DetailsCtrl', ['$scope','$http', '$routeParams', function($scope, $http, $routeParams) {
+.controller('DetailsCtrl', ['$scope','$http', '$routeParams','$location', function($scope, $http, $routeParams, $location) {
 	
 	$scope.whichItem = $routeParams.spaceId;
-	console.log($scope.whichItem)
-	$scope.getSpaces = function(){
-		$http.get('http://localhost:3000/spaces.json').then(function(response){
-			$scope.spaces = response.data
-	})};
+	$scope.space = {}
+	$scope.editSpace = function(){
+		$http.put('http://localhost:3000/spaces/'+ $routeParams.spaceId, $scope.space).
+		success(function(data) {
+			console.log(":)")
+		}).error(function(data) {
+			console.log(":(")
+	});
+		 $location.path('/index');
+	};
 		
-		$scope.spaces = $scope.getSpaces()
+
 }]);
