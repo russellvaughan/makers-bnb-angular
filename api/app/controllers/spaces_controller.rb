@@ -56,7 +56,7 @@ class SpacesController < ApplicationController
   def destroy
     @space.destroy
     respond_to do |format|
-      format.html { redirect_to spaces_url, notice: 'Space was successfully destroyed.' }
+      format.html { render :show }
       format.json { head :no_content }
     end
   end
